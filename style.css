@@ -27,7 +27,9 @@ a:hover {
 }
 
 body {
+  background-image: url('https://wallpapers.com/images/featured/diary-background-74asl6wzmdwc0m5h.jpg');
   min-width: 320px;
+  background-size: cover;
   min-height: 100vh;
   margin: 16px;
 }
@@ -50,6 +52,7 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
+  margin-top: 1em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -78,10 +81,9 @@ button:focus-visible {
   }
 } */
 
-/* https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l */
-
 h3 {
   border-bottom: 1px solid rgb(184, 15, 117);
+  margin-top: 50px;
 }
 
 button.del, button.check, button.update {
@@ -108,6 +110,54 @@ button.del {
   opacity: 0.75;
 }
 
+/* Navigaatiolista tyylittely */
+ul {
+  background-image: url('https://www.shutterstock.com/image-photo/beautiful-grunge-velvet-dark-navy-600nw-2060169125.jpg');
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ff724f;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #3a3a5e;
+}
+
+.active {
+  background-color: black;
+}
+
+/* Käyttäjä loggaantunut tyylittely */
+.user {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#name {
+  font-weight: bolder;
+}
+
+/* Taulukon tyylittey */
+/* https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l */
+
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;
@@ -118,7 +168,7 @@ button.del {
 }
 
 .styled-table thead tr {
-  background-color: #009879;
+  background-image: url('https://www.shutterstock.com/image-photo/beautiful-grunge-velvet-dark-navy-600nw-2060169125.jpg');
   color: #ffffff;
   text-align: left;
 }
@@ -148,13 +198,20 @@ button.del {
   background-color: #68535358;
   cursor: pointer;
 }
+
+.styled-table thead th {
+  background-image: url('https://www.shutterstock.com/image-photo/beautiful-grunge-velvet-dark-navy-600nw-2060169125.jpg');
+  color: #ffffff;
+}
+
 .forms {
   display: flex; 
   gap: 30px;
 }
 
+/* Formin tyylittely */
 form {
-  background-color: #009879;
+  background-image: url('https://www.shutterstock.com/image-photo/beautiful-grunge-velvet-dark-navy-600nw-2060169125.jpg');
   color: #ffffff;
   padding: 10px;
   margin-top: 25px;
@@ -163,8 +220,24 @@ form {
   width: 300px;
   font-size: 0.9em;
   font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5%;
 }
 
+.form-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+.form-section {
+  flex-basis: 48%;
+  margin: 1%;
+}
+
+
+/* Input kenttien tyylittely */
 input[type=text], input[type=password], input[type=email] {
   width: 100%;
   padding: 12px 20px;
@@ -172,12 +245,41 @@ input[type=text], input[type=password], input[type=email] {
   box-sizing: border-box;
 }
 
+/* VALIDOINTI */
 
-#cards {
-  min-height: 40px;
-  background-color: blueviolet;
+.create_user_form input {
+  border-left: 3px solid;
+}
+.create_user_form input:focus {
+  background-color: rgb(223, 223, 223);
 }
 
+.create_user_form input:optional {
+  
+}
+.create_user_form input:required {
+  /* border-left-color: red; */
+}
+.create_user_form input:invalid {
+  border-left-color: orange;
+
+}
+.create_user_form input:valid {
+  border-left-color: greenyellow
+}
+
+/* Koodiesimerkin tyylittely */
+pre {
+  background-color: aliceblue;
+}
+
+#loginResponse, #meResponse {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: smaller;
+  display: block;
+  width: 100%;
+  word-break:break-all;
+}
 
 @media screen and (max-width: 800px) {
   .forms {

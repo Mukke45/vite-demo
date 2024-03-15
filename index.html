@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+<body>
+  <ul>
+    <li><a href="index.html">Health diary</a></li>
+    <li><a href="info.html">Tietoja</a></li>
+  </ul>
+<div class="form-container">
+  <div class="form-section">
+    <h3>CREATE USER</h3>
+    <form class="create_user_form">
+      <label for="username">Username</label>
+      <input type="text" name="username" placeholder="username" minlength="3" maxlength="20" required />
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="test-pw-update4" minlength="8" required />
+      <label for="email">Email (metropolia.fi)</label>
+      <input type="email" name="email" placeholder="update4@metropolia.fi" minlength="8" pattern=".+@metropolia\.fi" required />
+      <input name="submit" type="submit" value="Post and log to console" class="createuser" />
+    </form>
+  </div>
+  <div class="form-section">
+    <h3>LOGIN USER</h3>
+    <form class="login_form">
+      <label for="username">Username</label>
+      <input type="text" name="username" placeholder="test" />
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="test" />
+      <input name="submit" type="submit" value="Login and get new token" class="loginuser" />
+    </form>
+    <h5>TOKEN:</h5>
+    <div id="loginResponse"></div>
+  </div>
+</div>
+<!-- User Info and Local Storage sections remain unchanged -->
+<h3>USER INFO</h3>
+<div>
+
+  <button id="meRequest">Make an "authenticated" request</button>
+  <h5>USER INFO:</h5>
+  <div id="meResponse"></div>
+</div>
+<h3>Local Storage</h3>
+<div>
+  <button id="clearButton">Clear localStorage</button>
+  <code id="clearResponse"></code>
+</div>
+<script type="module" src="/index.js"></script>
+</body>
+</html>
