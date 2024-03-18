@@ -101,7 +101,7 @@ function createTable(data) {
     const button3 = document.createElement('button');
     button3.className = 'check';
     button3.setAttribute('data-id', rivi.user_id);
-    button3.innerText = 'Hae Entrie';
+    button3.innerText = 'Get entry';
     td6.appendChild(button3);
     button3.addEventListener('click', getEntries);
 
@@ -257,8 +257,6 @@ function createTable2(data) {
   });
 }
 
-
-
 async function showUserName() {
   console.log('Hei täällä ollaan! Nyt pitäisi hakea käyttäjän tiedot');
 
@@ -313,6 +311,40 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Error updating user');
       }
     });
+  }
+});
+
+document.querySelector('.get_average_weight').addEventListener('click', async () => {
+  const userId = 1; // Assuming user ID is 1. Replace as needed.
+  const url = `http://127.0.0.1:3000/api/entries/${userId}`;
+
+  try {
+      const data = await fetchData(url);
+      let totalWeight = 0;
+      data.forEach(entry => {
+          totalWeight += entry.weight;
+      });
+      const averageWeight = data.length > 0 ? totalWeight / data.length : 0;
+      document.getElementById('averageWeightDisplay').innerText = `Average Weight: ${averageWeight.toFixed(2)}`;
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }
+});
+
+document.querySelector('.get_average_sleep').addEventListener('click', async () => {
+  const userId = 1; // Assuming user ID is 1. Replace as needed.
+  const url = `http://127.0.0.1:3000/api/entries/${userId}`;
+
+  try {
+      const data = await fetchData(url);
+      let totalSleepHours = 0;
+      data.forEach(entry => {
+          totalSleepHours += entry.sleep_hours;
+      });
+      const averageSleepHours = data.length > 0 ? totalSleepHours / data.length : 0;
+      document.getElementById('averageSleepDisplay').innerText = `Average Sleep Hours: ${averageSleepHours.toFixed(2)}`;
+  } catch (error) {
+      console.error('Error fetching data:', error);
   }
 });
 
